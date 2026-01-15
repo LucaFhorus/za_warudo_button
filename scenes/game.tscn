@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=3 uid="uid://dk650oer4o76x"]
+
+[ext_resource type="Script" uid="uid://cd1whqf4dcnfs" path="res://scripts/game_master.gd" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://chcqnxn46y5x0" path="res://scripts/za_warudo.gd" id="2_yqjtg"]
+[ext_resource type="AudioStream" uid="uid://bm8lyixdmc367" path="res://zaowlrd.mp3" id="3_lnu2h"]
+[ext_resource type="AudioStream" uid="uid://baeraa4l8w0t3" path="res://star-platinum-za-warudo-star-platinum-the-world-time-resume_Vr8OMdD.mp3" id="4_lbhrr"]
+[ext_resource type="AudioStream" uid="uid://c2nmewjksuoev" path="res://assets/audio/clock_ticks/slow-cinematic-clock-ticking-357979 (1).mp3" id="5_0tnpc"]
+[ext_resource type="AudioStream" uid="uid://d3d4fniolxrhj" path="res://assets/audio/clock_ticks/slow-cinematic-clock-ticking-357979 (2).mp3" id="6_vtaks"]
+[ext_resource type="AudioStream" uid="uid://dnwunk83ddril" path="res://assets/audio/clock_ticks/slow-cinematic-clock-ticking-357979 (3).mp3" id="7_kvpfn"]
+[ext_resource type="AudioStream" uid="uid://bt4hgg6iplrqt" path="res://assets/audio/clock_ticks/slow-cinematic-clock-ticking-357979 (4).mp3" id="8_dinhu"]
+[ext_resource type="AudioStream" uid="uid://c08cw04apl1tn" path="res://assets/audio/clock_ticks/slow-cinematic-clock-ticking-357979 (5).mp3" id="9_kvuet"]
+[ext_resource type="VideoStream" uid="uid://iqx3fvyx0u45" path="res://assets/video/Jotaro-Vs-Dio-No-Cc-Scale-1X-Prob-3-1.ogv" id="10_vtaks"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_trtic"]
+streams_count = 5
+stream_0/stream = ExtResource("5_0tnpc")
+stream_0/weight = 0.5
+stream_1/stream = ExtResource("6_vtaks")
+stream_1/weight = 0.5
+stream_2/stream = ExtResource("7_kvpfn")
+stream_2/weight = 0.5
+stream_3/stream = ExtResource("8_dinhu")
+stream_3/weight = 0.5
+stream_4/stream = ExtResource("9_kvuet")
+stream_4/weight = 0.5
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_uwrxv")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 533.0
+offset_top = 536.0
+offset_right = 638.0
+offset_bottom = 567.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "ZA WARUDO"
+script = ExtResource("2_yqjtg")
+power_type = "za_warudo"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button"]
+stream = ExtResource("3_lnu2h")
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Button"]
+stream = ExtResource("4_lbhrr")
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = -37.0
+offset_top = -276.0
+offset_right = 138.0
+offset_bottom = -253.0
+
+[node name="Timer" type="Timer" parent="Button"]
+
+[node name="Label2" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = -144.0
+offset_right = 80.0
+offset_bottom = -121.0
+
+[node name="Timer2" type="Timer" parent="Button"]
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Button"]
+stream = SubResource("AudioStreamRandomizer_trtic")
+
+[node name="ProgressBar" type="ProgressBar" parent="Button"]
+layout_mode = 0
+offset_left = -144.0
+offset_top = -84.0
+offset_right = 235.0
+offset_bottom = -57.0
+max_value = 5.0
+show_percentage = false
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Button"]
+layout_mode = 0
+offset_left = -228.0
+offset_top = -460.0
+offset_right = 294.0
+offset_bottom = -155.0
+stream = ExtResource("10_vtaks")
+autoplay = true
+expand = true
+loop = true
+
+[node name="ColorRect" type="ColorRect" parent="Button/VideoStreamPlayer"]
+visible = false
+layout_mode = 0
+offset_right = 522.0
+offset_bottom = 306.0
+color = Color(0.19607843, 0.19607843, 0.19607843, 0.7607843)
