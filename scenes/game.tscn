@@ -26,57 +26,63 @@ stream_4/weight = 0.5
 
 [node name="Game" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_uwrxv")
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 533.0
-offset_top = 536.0
-offset_right = 638.0
-offset_bottom = 567.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
+script = ExtResource("1_uwrxv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -52.5
+offset_top = -40.0
+offset_right = 52.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 text = "ZA WARUDO"
 script = ExtResource("2_yqjtg")
 power_type = "za_warudo"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Button"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer/Button"]
 stream = ExtResource("3_lnu2h")
 volume_db = -10.0
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Button"]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="VBoxContainer/Button"]
 stream = ExtResource("4_lbhrr")
 
-[node name="Label" type="Label" parent="Button"]
+[node name="Label" type="Label" parent="VBoxContainer/Button"]
 layout_mode = 0
 offset_left = -37.0
 offset_top = -276.0
 offset_right = 138.0
 offset_bottom = -253.0
 
-[node name="Timer" type="Timer" parent="Button"]
+[node name="Timer" type="Timer" parent="VBoxContainer/Button"]
 
-[node name="Label2" type="Label" parent="Button"]
+[node name="Label2" type="Label" parent="VBoxContainer/Button"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = -144.0
 offset_right = 80.0
 offset_bottom = -121.0
 
-[node name="Timer2" type="Timer" parent="Button"]
+[node name="Timer2" type="Timer" parent="VBoxContainer/Button"]
 
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Button"]
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="VBoxContainer/Button"]
 stream = SubResource("AudioStreamRandomizer_trtic")
 
-[node name="ProgressBar" type="ProgressBar" parent="Button"]
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer/Button"]
 layout_mode = 0
 offset_left = -144.0
 offset_top = -84.0
@@ -85,7 +91,7 @@ offset_bottom = -57.0
 max_value = 5.0
 show_percentage = false
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Button"]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="VBoxContainer/Button"]
 layout_mode = 0
 offset_left = -228.0
 offset_top = -460.0
@@ -96,7 +102,7 @@ autoplay = true
 expand = true
 loop = true
 
-[node name="ColorRect" type="ColorRect" parent="Button/VideoStreamPlayer"]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Button/VideoStreamPlayer"]
 visible = false
 layout_mode = 0
 offset_right = 522.0

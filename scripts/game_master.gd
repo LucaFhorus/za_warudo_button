@@ -1,7 +1,7 @@
 extends Control
 
 func _ready() -> void:
-	var button := $Button
+	var button := $VBoxContainer/Button
 	button.power_emitted.connect(_on_power_emitted)
 
 func _on_power_emitted(power_type : String):
